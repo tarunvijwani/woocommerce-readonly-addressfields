@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       WooCommerce Readonly Address Fields
- * Description:       This is POC plugin to set Readonly Address Fields
+ * Description:       This is a POC plugin to set Readonly Address Fields
  * Requires at least: 5.9
  * Requires PHP:      7.0
  * Version:           0.1.0
