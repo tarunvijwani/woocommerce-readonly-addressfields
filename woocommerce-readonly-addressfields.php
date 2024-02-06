@@ -31,25 +31,39 @@ function set_customer_addressfields() {
 	 */
 	function set_fixed_addresses( $object ) {
 		// Define the fixed address details.
-		$fixed_address = array(
-			'first_name' => 'John',
-			'last_name'  => 'Doe',
-			'company'    => 'Company Name',
-			'address_1'  => '123 Main St',
-			'address_2'  => 'Apt 1',
-			'city'       => 'Townsville',
+		$fixed_billing_address = array(
+			'first_name' => 'John Billing',
+			'last_name'  => 'Doe Billing',
+			'company'    => 'Company Name Billing',
+			'address_1'  => '123 Main St Billing',
+			'address_2'  => 'Apt 1 Billing',
+			'city'       => 'Townsville Billing',
+			'state'      => 'NY',
+			'postcode'   => '12344',
+			'country'    => 'US',
+			'email'      => 'john.doe.billing@example.com',
+			'phone'      => '555-555-5555'
+		);
+		$fixed_shipping_address = array(
+			'first_name' => 'John Shipping',
+			'last_name'  => 'Doe Shipping',
+			'company'    => 'Company Name Shipping',
+			'address_1'  => '123 Main St Shipping',
+			'address_2'  => 'Apt 1 Shipping',
+			'city'       => 'Townsville Shipping',
 			'state'      => 'NY',
 			'postcode'   => '12345',
 			'country'    => 'US',
-			'email'      => 'john.doe@example.com',
+			'email'      => 'john.doe.shipping@example.com',
 			'phone'      => '555-555-5555'
 		);
 
-		// Loop through the address details and set them.
-		foreach ( $fixed_address as $key => $value ) {
+		foreach ( $fixed_billing_address as $key => $value ) {
 			if ( is_callable( [ $object, "set_billing_$key" ] ) ) {
 				$object->{"set_billing_$key"}( $value );
 			}
+		}
+		foreach ( $fixed_shipping_address as $key => $value ) {
 			if ( is_callable( [ $object, "set_shipping_$key" ] ) ) {
 				$object->{"set_shipping_$key"}( $value );
 			}
